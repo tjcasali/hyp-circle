@@ -11,40 +11,16 @@ struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
-        
-        if let user = viewModel.currentUser {
-            List {
-                Section {
-                    VStack (alignment: .leading, spacing: 4) {
-                        Text (user.fullName)
-                            .font (.subheadline)
-                            .fontWeight(.semibold)
-                            .padding(.top, 4)
-                        Text(user.email)
-                            .font (.footnote)
-                            .foregroundColor(.gray)
-                    }
-                    
-                }
-            }
+        let user = viewModel.currentUser
+        VStack (alignment: .leading, spacing: 4) {
+            Text(user?.fullName ?? "")
+                .font (.subheadline)
+                .fontWeight(.semibold)
+                .padding(.top, 4)
+            Text(user?.email ?? "")
+                .font (.footnote)
+                .foregroundColor(.gray)
             
-            Button {
-                viewModel.signOut()
-            } label: {
-                SettingsRowView(imageName: "arrow.left.circle.fill",
-                                title: "Sign Out",
-                                tintColor: .red)
-            }
-            
-            Button {
-                print("Delete account..")
-            } label: {
-                SettingsRowView(imageName: "xmark.circle.fill",
-                                title: "Delete Account",
-                                tintColor: .red)
-            }
-        } else {
-            Text("Whoops")
             Button {
                 viewModel.signOut()
             } label: {
@@ -66,4 +42,5 @@ struct ProfileView: View {
 
 #Preview {
     ProfileView()
+        .environmentObject(AuthViewModel())
 }
