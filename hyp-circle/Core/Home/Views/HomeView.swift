@@ -14,15 +14,18 @@ struct HomeView: View {
     var body: some View {
         VStack(alignment: .leading) {
             
+            WorkoutHeaderView()
+            
             VStack(alignment: .leading, spacing: 12) {
                 Text("Clock In")
                     .foregroundColor(Color(.black))
                     .frame(alignment: .leading)
                     .padding(.leading, 24)
-                    .padding(.top, 12)
+                    .padding(.top, 24)
                     .font(.system(size: 24))
                     .fontWeight(.bold)
             }
+            
             NewWorkoutView()
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .padding(.bottom, 20)
@@ -48,34 +51,6 @@ struct HomeView: View {
 
             VStack{
                 GroupFeedView()
-//                HStack {
-//                    Button(action: {
-//                        print("Enter Manually")
-//                    }) {
-//                        Text("Create Group")
-//                            .frame(width: 120, height: 40)
-//                            .fontWeight(.bold)
-//                            .font(.system(size: 14))
-//                            .foregroundColor(.black)
-//                    }.padding()
-//                        .overlay(
-//                            RoundedRectangle(cornerRadius: 20)
-//                                .stroke(Color.black, lineWidth: 3))
-//                    
-//                    Button(action: {
-//                        print("Enter Manually")
-//                    }) {
-//                        Text("Join Existing Group")
-//                            .frame(width: 120, height: 40)
-//                            .fontWeight(.bold)
-//                            .font(.system(size: 14))
-//                            .foregroundColor(.black)
-//                            .multilineTextAlignment(.center)
-//                    }.padding()
-//                        .overlay(
-//                            RoundedRectangle(cornerRadius: 20)
-//                                .stroke(Color.black, lineWidth: 3))
-//                }
             }
         }
     }
